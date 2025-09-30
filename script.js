@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
     const loveButton = document.getElementById('love-button');
     const messageText = document.getElementById('message-text');
-    const bubbleContainer = document.getElementById('bubble-container'); // Ambil wadah bubble
+    const bubbleContainer = document.getElementById('bubble-container'); 
 
     // Array berisi pesan-pesan manis dan pemicu senyuman
     const sweetMessages = [
@@ -17,16 +17,16 @@ document.addEventListener('DOMContentLoaded', () => {
         "Aku ada di sisimu, selalu."
     ];
 
-    // Daftar foto pacar Anda - GANTI INI DENGAN NAMA FILE FOTO ASLI ANDA!
+    // Daftar foto pacar Anda - WAJIB GANTI INI!
     const photoFiles = [
         "pacar1.jpg", 
         "pacar2.jpg", 
         "pacar3.jpg"
-        // Tambahkan semua nama file foto Anda di sini (pastikan penulisan huruf besar/kecil sama persis)
+        // GANTI INI DENGAN NAMA FILE FOTO ASLI ANDA! (Pastikan huruf besar/kecil sama)
     ];
 
-    let lastIndex = -1; 
-    let bubbleCount = 0; // Untuk membatasi jumlah bubble
+    let lastIndex = -1;
+    let bubbleCount = 0; 
 
     function getRandomMessage() {
         let randomIndex;
@@ -37,17 +37,16 @@ document.addEventListener('DOMContentLoaded', () => {
         lastIndex = randomIndex;
         return sweetMessages[randomIndex];
     }
-
-    // --- FUNGSI BARU: MEMBUAT BUBBLE FOTO ---
+    
+    // FUNGSI MEMBUAT BUBBLE FOTO
     function createPhotoBubble() {
-        // Batasi jumlah bubble yang muncul
         if (photoFiles.length === 0 || bubbleCount >= 10) return; 
 
         const bubble = document.createElement('div');
         bubble.classList.add('photo-bubble');
 
         const img = document.createElement('img');
-        img.src = photoFiles[Math.floor(Math.random() * photoFiles.length)]; // Pilih foto acak
+        img.src = photoFiles[Math.floor(Math.random() * photoFiles.length)]; 
         bubble.appendChild(img);
 
         // Atur properti acak
@@ -79,7 +78,7 @@ document.addEventListener('DOMContentLoaded', () => {
     for (let i = 0; i < 5; i++) {
         setTimeout(createPhotoBubble, i * 1500);
     }
-    setInterval(createPhotoBubble, 3000); // Jadwalkan bubble baru setiap 3 detik
+    setInterval(createPhotoBubble, 3000); 
 
     loveButton.addEventListener('click', () => {
         // 1. Dapatkan pesan baru
